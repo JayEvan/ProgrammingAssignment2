@@ -36,3 +36,7 @@ cacheSolve <- function(x, ...) {
   x$setxinv(m)
   m  
 }
+## tested the following calls
+## myMatrix <- matrix(rnorm((36),mean=10,sd=2),nrow=6,ncol=6)
+## testmake <- makeCacheMatrix(myMatrix)
+## testsolve <- cacheSolve(testmake)
