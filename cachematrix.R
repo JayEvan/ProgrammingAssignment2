@@ -2,12 +2,10 @@
 ## Coursera, R Programming
 ## JayEvan
 ## 
-
-## Write a short comment describing this function
 ## This function creates a special matrix object that
-## can cache its inverse
-## a square matrix
-## default for pass is 5x5
+## stores a square matrix and functions used by cacheSolve
+## to solve the matrix in the returned list
+## default matrix is 5x5 populated by random normal numbers
 
 makeCacheMatrix <- function(x = matrix(rnorm((25),mean=10,sd=2),nrow=5,ncol=5)) {
   m <- NULL
@@ -23,9 +21,10 @@ makeCacheMatrix <- function(x = matrix(rnorm((25),mean=10,sd=2),nrow=5,ncol=5)) 
        getxinv = getxinv)
 }
 
-## Write a short comment describing this function
-## This function computes the inverse of the matrix returned by make
-## makeCacheMatrix if not in cache
+## This function computes utilizes the list created by 
+## makeCacheMatrix to solve and return the matrix.  
+## if the inverted matrix has been calculated and stored in cache
+## the cached values is returned
 cacheSolve <- function(x, ...) {
   m <- x$getxinv()
   if(!is.null(m)) {
